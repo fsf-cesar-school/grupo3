@@ -9,20 +9,20 @@ logo = tk.Label(window, image=imagem)
 logo.imagem = imagem
 logo.pack()
 
-login = tk.Button(
-		text="LOGIN",
+blogin = tk.Button(
+    text="LOGIN",
     width=25,
     height=5,
     bg="purple",
     fg="white")
-login.pack()
+blogin.pack()
 
-cadastro = tk.Button(
+bcadastro = tk.Button(
     text="CADASTRO",
     width=25,
     height=5,
     bg="purple",
     fg="white")
-cadastro.pack()
+bcadastro.pack()
 
 window.mainloop()
