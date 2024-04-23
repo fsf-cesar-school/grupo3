@@ -1,3 +1,5 @@
+# versão do código no tkinter
+
 # - pip install tkinter
 import tkinter as tk
 
