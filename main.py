@@ -1,10 +1,8 @@
 import tkinter as tk
 
 window = tk.Tk()
-greeting = tk.Label(text="CONTROL GLIC")
-greeting.pack()
 
-imagem = tk.PhotoImage(file="")
+imagem = tk.PhotoImage(file="control.png")
 logo = tk.Label(window, image=imagem)
 logo.imagem = imagem
 logo.pack()
