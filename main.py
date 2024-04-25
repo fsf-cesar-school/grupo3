@@ -1,4 +1,4 @@
-#            APP CONTROL GLIC ! <<<<<<<<<<<<<<<<<<<<<<<<<,
+#            APP CONTROL GLIC ! <<<<<<<<<<<<<<<<<<<<<<<<<
 
 users = open('users.txt', 'a')
 
@@ -13,14 +13,22 @@ def cadastro():
         print('Esse email já está sendo utilizado.')
     else:
         if confirmpassword == userpassword:
-            users.write('{}\n'.format(useremail, userpassword))
+            users.write(f'[{useremail, userpassword}]\n')
             print('Cadastro efetuado com sucesso!')
         else:
             print("As senhas não coincidem.")
 
 def login():
     userlogin = input("Insira o seu email:\n")
-    # INCOMPLETO !!
+    open('users.txt', 'r')
+    if userlogin in 'users.txt':
+        userpwd = input("Insira sua senha")
+        if userpwd in 'users.txt':
+            print("Login efetuado com sucesso.")
+        else:
+            print("Senha incorreta.")
+    else:
+        print("Endereço de email não cadastrado.")
 
 #
 
