@@ -11,28 +11,34 @@ def cadastro():
     userpassword = input("» Crie uma senha:\n")
     confirmpassword = input("» Confirme a sua senha:\n")
 
-    if useremail in 'users.txt':
-        print('» Esse email já está sendo utilizado.')
-    else:
-        if confirmpassword == userpassword:
-            users.write(f'[{useremail, userpassword}]\n')
-            print('» Cadastro efetuado com sucesso!')
+    with open('users.txt', 'r') as f:
+        if useremail in f.read():
+            print('» Esse email já está sendo utilizado.')
         else:
-            print("» As senhas não coincidem.")
+            if confirmpassword == userpassword:
+                with open('users.txt', 'a') as f:
+                    f.write(f'{useremail} {userpassword}\n')
+                print('» Cadastro efetuado com sucesso!')
+            else:
+                print("» As senhas não coincidem.")
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
 def login():
     userlogin = input("» Insira o seu endereço de email:\n")
-    open('users.txt', 'r')
-    if userlogin in 'users.txt':
-        userpwd = input("» Insira sua senha")
-        if userpwd in 'users.txt':
-            print("» Login efetuado com sucesso.")
-        else:
+    userpwd = input("» Insira sua senha:\n")
+
+    with open('users.txt', 'r') as f:
+        if userlogin in f.read():
+            f.seek(0)
+            for line in f:
+                email, pwd = line.split()
+                if userlogin == email and userpwd == pwd:
+                    print("» Login efetuado com sucesso.")
+                    return
             print("» Senha incorreta.")
-    else:
-        print("» Endereço de email não cadastrado.")
+        else:
+            print("» Endereço de email não cadastrado.")
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
