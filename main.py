@@ -42,13 +42,58 @@ def login():
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
-# TELA DE INÍCIO - CADASTRO/LOGIN #
+        # TELA DE INÍCIO - CADASTRO/LOGIN #
 
 escolhaentrada = int(input("» O que deseja fazer?\n1 → Cadastro\n2 → Login\n"))
 if escolhaentrada == 1:
     cadastro()
 elif escolhaentrada == 2:
     login()
+else:
+    print("» Opção inválida.")
+
+# •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
+
+def alimentacao():
+    print("Aqui é onde você registrará as suas refeições diárias.")
+
+    cafedamanha = []
+    almoco = []
+    janta = []
+
+    escolhaalimentacao = int(input("» Em qual das seguintes refeições você deseja implementar alimentos?\n1 → Café da manhã\n2 → Almoço\n3 → Jantar\n"))
+    
+    while True:
+        if escolhaalimentacao == 1:
+            comida = input("» O que você comeu no café da manhã? (Digite 'sair' para terminar)\n")
+            if comida.lower() == "sair":
+                break
+            cafedamanha.append(comida)
+
+        elif escolhaalimentacao == 2:
+            comida = input("» O que você comeu no almoço? (Digite 'sair' para terminar)\n")
+            if comida.lower() == "sair":
+                break
+            almoco.append(comida)
+
+        elif escolhaalimentacao == 3:
+            comida = input("» O que você comeu no jantar? (Digite 'sair' para terminar)\n")
+            if comida.lower() == "sair":
+                break
+            janta.append(comida)
+        else:
+            print("Opa, n ta pronto ainda")
+            break
+
+# •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
+
+        # TELA PRINCIPAL #
+
+escolhaprincipal = int(input("» O que deseja fazer agora?\n1 → Controle da alimentação\n2 → etc\n"))
+if escolhaprincipal == 1:
+    alimentacao()
+elif escolhaprincipal == 2:
+    print("Opa, n ta pronto ainda")
 else:
     print("» Opção inválida.")
 
