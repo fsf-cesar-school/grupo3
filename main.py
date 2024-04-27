@@ -50,7 +50,7 @@ if escolhaentrada == 1:
 elif escolhaentrada == 2:
     login()
 else:
-    print("» Opção inválida.")
+    print("» Opção inválida..")
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
@@ -82,7 +82,7 @@ def alimentacao():
                 break
             janta.append(comida)
         else:
-            print("Opa, n ta pronto ainda")
+            print("» Opa, n ta pronto ainda")
             break
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
@@ -92,9 +92,7 @@ def alimentacao():
 escolhaprincipal = int(input("» O que deseja fazer agora?\n1 → Controle da alimentação\n2 → etc\n"))
 if escolhaprincipal == 1:
     alimentacao()
-elif escolhaprincipal == 2:
-    print("Opa, n ta pronto ainda")
 else:
-    print("» Opção inválida.")
+    print("» Opa, n ta pronto ainda")
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
