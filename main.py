@@ -13,7 +13,13 @@ def cadastro():
 
     with open('users.txt', 'r') as f:
         if useremail in f.read():
-            print('» Esse email já está sendo utilizado.')
+            escolhaemail = int(input('» Esse email já está sendo utilizado.\n» Deseja fazer login?\n1 → Sim\n2 → Não, tentar outro email.'))
+            if escolhaemail == 1:
+                login()
+            elif escolhaemail == 2:
+                cadastro()
+            else:
+                print("» Opção inválida..")
         else:
             if confirmpassword == userpassword:
                 with open('users.txt', 'a') as f:
