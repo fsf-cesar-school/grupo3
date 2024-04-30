@@ -21,7 +21,7 @@ class Usuario:
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
-    @staticmethod
+    @staticmethod # "o staticmethod é uma função de uma classe que interage de alguma forma com o objeto"
     def cadastro():
         useremail = input("» Insira o seu endereço de email:\n")
         userpassword = input("» Crie uma senha:\n")
@@ -41,7 +41,7 @@ class Usuario:
                     idade = input("» Digite sua idade: ")
                     telefone = input("» Digite seu telefone: ")
                     endereco = input("» Digite seu endereço: ")
-                    print("Perfil criado com sucesso!")
+                    print("» Perfil criado com sucesso!")
                     
                     Usuario.usuario_atual = Usuario(nome, idade, useremail, telefone, endereco)
 
@@ -88,13 +88,14 @@ def tela_inicial():
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
 def alimentacao():
-    print("Aqui é onde você registrará as suas refeições diárias.")
+    print("» Aqui é onde você registrará as suas refeições diárias.")
 
     cafedamanha = []
     almoco = []
     janta = []
+    lanche = []
 
-    escolhaalimentacao = int(input("» Em qual das seguintes refeições você deseja implementar alimentos?\n1 → Café da manhã\n2 → Almoço\n3 → Jantar\n"))
+    escolhaalimentacao = int(input("» Em qual das seguintes refeições você deseja implementar alimentos?\n1 → Café da manhã\n2 → Almoço\n3 → Jantar\n4 → Lanche"))
     
     while True:
         if escolhaalimentacao == 1:
@@ -114,15 +115,21 @@ def alimentacao():
             if comida.lower() == "sair":
                 break
             janta.append(comida)
+            
+        elif escolhaalimentacao == 4:
+            comida = input("» O que você comeu no lanche? (Digite 'sair' para terminar)\n")
+            if comida.lower() == "sair":
+                break
+            lanche.append(comida)
         else:
-            print("Opa, n ta pronto ainda")
+            print("» Opção inválida.")
             break
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
 def tela_principal():
     while True:
-        escolhaprincipal = int(input("» O que deseja fazer agora?\n1 → Controle da alimentação\n2 → Exibir perfil\n"))
+        escolhaprincipal = int(input("» O que deseja fazer agora?\n1 → Controle da alimentação\n2 → Exibir perfil\n2 → Outro\n"))
         if escolhaprincipal == 1:
             alimentacao()
             break
@@ -131,6 +138,9 @@ def tela_principal():
                 Usuario.usuario_atual.exibir_perfil()
             else:
                 print("» Nenhum perfil para exibir. Por favor, faça o login ou cadastro primeiro.")
+            break
+        elif escolhaprincipal == 3:
+            print("» Opa, não está pronto ainda! Volte mais tarde.")
             break
         else:
             print("» Opção inválida.")
