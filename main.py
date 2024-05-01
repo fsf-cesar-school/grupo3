@@ -34,19 +34,19 @@ def cadastro():
 
 ### EDSON v
 
-def __init__(self, nome, idade, email,telefone,endereço):
+def __init__(self, nome, idade, email,telefone,endereco):
     self.nome = nome
     self.idade = idade
     self.email = email
     self.telefone = telefone
-    self.endereço = endereço
+    self.endereco = endereco
 
 def exibir_perfil(self):    
     print(f"Nome: {self.nome}")
     print(f"Idade: {self.idade}")
     print(f"email: {self.email}")
     print(f"telefone: {self.telefone}")
-    print(f"endereço: {self.endereço}")
+    print(f"endereço: {self.endereco}")
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
