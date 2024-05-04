@@ -1,0 +1,36 @@
+def anamnese():
+    global quadro_clinico, sexo , idade ,  altura , peso, imc, tipo_diabetes, terapia, unidades_medida, unidade_glicemia, hipoglicemia, glicemia_baixa, glicemia_desejada, glicemia_alta, hiperglicemia
+    medicamentos = ['Actos','Amaryl','Bydureon','Byetta','Competact','Diabetex','Diamicron','Eucreas','Galvus','Glibenclamida','Glimepirid','Glucophage','Glucotrol','Glurenorm','Icandra','Invokana','Jalra','Janumet','Januvia','Metformin','NovoNorm','Onglyza','Prandil','Precose','Repaglinid','Siofor','Starlix','Trulicity','Velmetia','Victoza','Xelevia']
+    bombas_insulina = ["Accu-Check" , "Animais" , "Deltec" , "Insulet" , "Medtronic" , "Sooil" , "Tandem" ,  "V-Go"]
+    sexo = (input("Informe o seu sexo? Feminino , Masculino , Prefiro não me identificar , Outro\n"))
+    idade = int(input("Informe sua idade?\n"))
+    altura = float(input("Informe a sua altura?\n"))
+    peso = float(input("Informe o seu peso?\n"))
+    imc = peso/(altura*altura)
+    tipo_diabetes = (input("Informe o tipo da sua Diabetes: Tipo I, Tipo II, Gestacional, MODY, LADA, Outro\n"))
+    terapia = (input("Qual é a sua terapia? Medicamento sem insulina, Injeções diárias, Bomba de insulina, Outra terapia, Não faz uso de terapia\n"))
+    if terapia == "Medicamento sem insulina":
+        input("Qual o medicamento que você usa?\n")
+        input("Qual a dosagem desse medicamento?\n")
+    elif terapia == "Injeções diárias":
+        input("Qual o aumento da dose de insulina na caneta? 0.5U , 1U , 2U\n")
+    elif terapia == "Bomba de insulina":
+        input("Qual a marca da Bomba de insulina?\n")
+    elif terapia == "Outra terapia":
+        input("Informe qual outra terapia você utiliza?\n")
+    elif terapia == "Não faz uso de terapia":
+        print("Usuário não faz uso de terapia.")
+    else:
+        print("Opção inválida!")
+    unidades_medida = input("Especifique as unidades de medida: US (lbs, oz, fl oz, inch), Métrico (Kg, g, mL, cm)\n")
+    unidade_glicemia = input("Qual a unidade que você mede sua glicemia: mg/mL, mmol/L\n")
+    hipoglicemia = int(input("Informe o seu nível de hipoglicemia: "))
+    glicemia_baixa = int(input('Informe o seu nível de glicemia baixa: '))
+    glicemia_desejada = int(input('Informe o seu nível de glicemia desejada: '))
+    glicemia_alta = int(input('Informe o seu nível de glicemia alta: '))
+    hiperglicemia = int(input('Informe o seu nível de hiperglicemia: '))
+    quadro_clinico = (sexo , idade ,  altura , peso, imc, tipo_diabetes, terapia, unidades_medida, unidade_glicemia, hipoglicemia, glicemia_baixa, glicemia_desejada, glicemia_alta, hiperglicemia)
+    return quadro_clinico 
+
+anamnese()
+print(f"O seu quadro clínico é: paciente do sexo {sexo} com idade de {idade} anos, possui {altura} m de altura e {peso} kg cujo índice de massa córporea é {imc:.2f}. Paciente portador de Diabetes {tipo_diabetes}, com relação a terapia, faz uso de {terapia}, utiliza o sistema de medidas {unidades_medida} e para medir a glicemia {unidade_glicemia}. Suas metas glicêmicas são: Hipoglicemia {hipoglicemia}{unidade_glicemia}; Glicemia baixa {glicemia_baixa}{unidade_glicemia}; Glicemia desejada {glicemia_desejada}{unidade_glicemia}; Glicemia alta {glicemia_alta}{unidade_glicemia}; Hiperglicemia {hiperglicemia}{unidade_glicemia}")
