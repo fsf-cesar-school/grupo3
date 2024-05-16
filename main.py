@@ -87,51 +87,56 @@ def tela_inicial():
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
-cafedamanha = []
-almoco = []
-janta = []
-lanche = []
-
 def alimentacao():
     print("» Aqui é onde você registrará as suas refeições diárias.")
 
-    escolhaalimentacao = int(input("» Em qual das seguintes refeições você deseja implementar alimentos?\n1 → Café da manhã\n2 → Almoço\n3 → Jantar\n4 → Lanche"))
-    
     while True:
-        with open('comida.txt', 'r+') as f:
-            if escolhaalimentacao == 1:
-                comida = input("» O que você comeu no café da manhã? (Digite 'sair' para terminar)\n")
-                if comida.lower() == "sair":
-                    break
-                f.write(f'- Café da manhã: {comida}')
-                cafedamanha.append(comida)
+        escolhaalimentacao = int(input("» Em qual das seguintes refeições você deseja implementar alimentos?\n1 → Café da manhã\n2 → Almoço\n3 → Jantar\n4 → Lanche\n5 → Sair"))
 
-            elif escolhaalimentacao == 2:
-                comida = input("» O que você comeu no almoço? (Digite 'sair' para terminar)\n")
-                if comida.lower() == "sair":
-                    break
-                f.write(f'- Almoço: {comida}')
-                almoco.append(comida)
+        if escolhaalimentacao == 1:
+            with open('comida.txt', 'a') as f:
+                f.write("- Café da manhã:\n")
+                while True:
+                    comida = input("» O que você comeu no café da manhã? (Digite 'sair' para terminar)\n")
+                    if comida.lower() == "sair":
+                        break
+                    f.write(f'- {comida}\n')
 
-            elif escolhaalimentacao == 3:
-                comida = input("» O que você comeu no jantar? (Digite 'sair' para terminar)\n")
-                if comida.lower() == "sair":
-                    break
-                f.write(f'- Janta: {comida}')
-                janta.append(comida)
-                
-            elif escolhaalimentacao == 4:
-                comida = input("» O que você comeu no lanche? (Digite 'sair' para terminar)\n")
-                if comida.lower() == "sair":
-                    break
-                f.write(f'- Lanche: {comida}')
-                lanche.append(comida)
-            else:
-                print("» Opção inválida.")
-                break
+        elif escolhaalimentacao == 2:
+            with open('comida.txt', 'a') as f:
+                f.write("- Almoço:\n")
+                while True:
+                    comida = input("» O que você comeu no almoço? (Digite 'sair' para terminar)\n")
+                    if comida.lower() == "sair":
+                        break
+                    f.write(f'- {comida}\n')
 
+        elif escolhaalimentacao == 3:
+            with open('comida.txt', 'a') as f:
+                f.write("Jantar:\n")
+                while True:
+                    comida = input("» O que você comeu no jantar? (Digite 'sair' para terminar)\n")
+                    if comida.lower() == "sair":
+                        break
+                    f.write(f'- {comida}\n')
+
+        elif escolhaalimentacao == 4:
+            with open('comida.txt', 'a') as f:
+                f.write("Lanche:\n")
+                while True:
+                    comida = input("» O que você comeu no lanche? (Digite 'sair' para terminar)\n")
+                    if comida.lower() == "sair":
+                        break
+                    f.write(f'- {comida}\n')
+        elif escolhaalimentacao == 5:
+            break
+        else:
+            print("» Opção inválida.")
+            break
+        
 def listacomidas():
-    print(f'Café da manhã: {cafedamanha}\nAlmoço: {almoco}\nJanta: {janta}\nLanche: {lanche}')
+    with open('comida.txt', 'r') as f:
+        print(f.read())
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
@@ -155,6 +160,7 @@ def tela_principal():
             break
         else:
             print("» Opção inválida.")
+    tela_principal()
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
