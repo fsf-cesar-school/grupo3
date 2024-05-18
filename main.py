@@ -10,14 +10,10 @@ class Usuario:
         self.telefone = telefone
         self.endereco = endereco
 
-# •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
-
     def exibir_perfil(self):
-        print(f"Nome: {self.nome}")
-        print(f"Idade: {self.idade}")
-        print(f"Email: {self.email}")
-        print(f"Telefone: {self.telefone}")
-        print(f"Endereço: {self.endereco}")
+        with open('perfil.txt', 'r', encoding='utf-8') as pf:
+            fc = pf.read()
+            print(fc)
 
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
@@ -39,11 +35,14 @@ class Usuario:
                         f.write(f'{useremail} {userpassword}\n')
                     print('» Cadastro efetuado com sucesso!')
 
-                    nome = input("» Digite seu nome: ")
-                    idade = input("» Digite sua idade: ")
-                    telefone = input("» Digite seu telefone: ")
-                    endereco = input("» Digite seu endereço: ")
-                    print("» Perfil criado com sucesso!")
+                    with open('perfil.txt', 'a+', encoding='utf-8') as fl:
+                        fl.write("» Perfil do usuário\n")
+                        nome = input("» Digite seu nome: ")
+                        idade = input("» Digite sua idade: ")
+                        telefone = input("» Digite seu telefone: ")
+                        endereco = input("» Digite seu endereço: ")
+                        print("» Perfil criado com sucesso!")
+                        fl.write(f'Nome: {nome}\nIdade: {idade}\nTelefone: {telefone}\nEndereço: {endereco}')
                     
                     Usuario.usuario_atual = Usuario(nome, idade, useremail, telefone, endereco)
 
@@ -84,12 +83,12 @@ def tela_inicial():
         escolhaentrada = int(input("» O que deseja fazer?\n1 → Cadastro\n2 → Login\n"))
 
         if escolhaentrada == 1:
-            if Usuario.cadastro():
-                break
+            Usuario.cadastro()
+            break
 
         elif escolhaentrada == 2:
-            if Usuario.login():
-                break
+            Usuario.login()
+            break
         else:
             print("» Opção inválida.")
             tela_inicial()
