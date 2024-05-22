@@ -21,3 +21,6 @@ def print_relatorio():
     with open ('relatorio.txt', 'a+', encoding='utf-8') as fp:
         pr = fp.read()
     print(pr)
+
+# chamar as funcões nos menus !!!
+# tá funcionando :D
