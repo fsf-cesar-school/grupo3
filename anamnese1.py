@@ -5,7 +5,7 @@ def anamnese():
     dose_caneta = []
     bombas_insulina = []
     
-    sexo_op = (input("Informe o seu sexo?\n(1) Feminino\n(2) Masculino\n(3) Prefiro não me identificar\n(4) Outro\n"))
+    sexo_op = (input("Informe o seu sexo?\n(1) Feminino\n(2) Masculino\n(3) Prefiro não me identificar\n(4) Outro\nEscolha sua opção: "))
     if sexo_op == '1':
         sexo = 'Feminino'
     elif sexo_op == '2':
@@ -15,12 +15,12 @@ def anamnese():
     elif sexo_op == '4':
         sexo = 'Outro'
     
-    idade = int(input("Informe sua idade?\n"))
-    altura = float(input("Informe a sua altura?\n"))
-    peso = float(input("Informe o seu peso?\n"))
+    idade = int(input("Informe sua idade: "))
+    altura = float(input("Informe a sua altura: "))
+    peso = float(input("Informe o seu peso: "))
     imc = peso/(altura*altura)
     
-    diabetes_op = (input("Informe o tipo da sua Diabetes:\n(1) Tipo I\n(2) Tipo II\n(3) Gestacional\n(4) MODY\n(5) LADA\n(6) Outro\n"))
+    diabetes_op = (input("Informe o tipo da sua Diabetes:\n(1) Tipo I\n(2) Tipo II\n(3) Gestacional\n(4) MODY\n(5) LADA\n(6) Outro\nEscolha sua opção: "))
     if diabetes_op == '1':
         tipo_diabetes = 'Tipo I'
     if diabetes_op == '2':
@@ -33,30 +33,30 @@ def anamnese():
         tipo_diabetes = 'LADA'
     if diabetes_op == '6':
         tipo_diabetes = 'Outro'
-    terapia_op = (input("Qual é a sua terapia?\n(1) Medicamento sem insulina\n(2) Injeções diárias\n(3) Bomba de insulina\n(4) Outra terapia\n(5) Não faz uso de terapia\n"))
+    terapia_op = (input("Qual é a sua terapia?\n(1) Medicamento sem insulina\n(2) Injeções diárias\n(3) Bomba de insulina\n(4) Outra terapia\n(5) Não faz uso de terapia\nEscolha sua opção: "))
     if terapia_op == '1':
         terapia = 'Medicamento sem insulina'
-        medicamentos.append(input("Qual o medicamento que você usa?\n"))
-        dosagem.append(input("Qual a dosagem desse medicamento?\n"))
+        medicamentos.append(input("Qual o medicamento que você usa: "))
+        dosagem.append(input("Qual a dosagem desse medicamento: "))
     elif terapia_op == '2':
         terapia = 'Injeções diárias'
-        dose_caneta.append(input("Qual o aumento da dose de insulina na caneta?\n"))
+        dose_caneta.append(input("Qual o aumento da dose de insulina na caneta: "))
     elif terapia_op == '3':
         terapia = 'Bomba de insulina'
-        bombas_insulina.append(input("Qual a marca da Bomba de insulina?\n"))
+        bombas_insulina.append(input("Qual a marca da Bomba de insulina: "))
     elif terapia_op == '4':
         terapia = 'Outra terapia'
-        input("Informe qual outra terapia você utiliza?\n")
-    elif terapia == '5':
+        input("Informe qual outra terapia você utiliza: ")
+    elif terapia_op == '5':
         terapia = 'Usuário não faz uso de terapia'
     else:
         print("Opção inválida!")
-    unidades_medida_op = input("Especifique as unidades de medida:\n(1) US (lbs, oz, fl oz, inch)\n(2) Métrico (Kg, g, mL, cm)\n")
+    unidades_medida_op = input("Especifique as unidades de medida:\n(1) US (lbs, oz, fl oz, inch)\n(2) Métrico (Kg, g, mL, cm)\nEscolha sua opção: ")
     if unidades_medida_op == '1':
         unidades_medida = 'US (lbs, oz, fl oz, inch)'
     elif unidades_medida_op == '2':
         unidades_medida = 'Métrico (kg, g, mL, cm)'
-    unidade_glicemia_op = input("Qual a unidade que você mede sua glicemia:\n(1) mg/mL\n(2) mmol/L\n")
+    unidade_glicemia_op = input("Qual a unidade que você mede sua glicemia:\n(1) mg/mL\n(2) mmol/L\nEscolha sua opção: ")
     if unidade_glicemia_op == '1':
         unidade_glicemia = 'mg/mL'
     elif unidade_glicemia_op == '2':
@@ -70,4 +70,4 @@ def anamnese():
     return quadro_clinico 
 
 anamnese()
-print(f"O seu quadro clínico é: paciente do sexo {sexo} com idade de {idade} anos.\nPossui {altura} m de altura e {peso} kg cujo índice de massa córporea é {imc:.2f}.\nPaciente portador de Diabetes {tipo_diabetes}, com relação a terapia, faz uso de {terapia}.\nUtiliza o sistema de medidas {unidades_medida} e para medir a glicemia ({unidade_glicemia}).\nSuas metas glicêmicas são:\nHipoglicemia {hipoglicemia}{unidade_glicemia};\nGlicemia baixa {glicemia_baixa}{unidade_glicemia};\nGlicemia desejada {glicemia_desejada}{unidade_glicemia};\nGlicemia alta {glicemia_alta}{unidade_glicemia};\nHiperglicemia {hiperglicemia}{unidade_glicemia}")
+print(f"O seu quadro clínico é:\nSexo: {sexo}\nIdade: {idade} anos.\nAltura: {altura} m\nPeso: {peso} kg\nIMC: {imc:.2f}.\nTipo de Diabetes: {tipo_diabetes}\nTipo de terapia: {terapia}.\nSistema de medidas: {unidades_medida}\nUnd. Med. glicemia: ({unidade_glicemia}).\nMetas glicêmicas:\nHipoglicemia: {hipoglicemia}{unidade_glicemia}\nGlicemia baixa: {glicemia_baixa}{unidade_glicemia}\nGlicemia desejada: {glicemia_desejada}{unidade_glicemia}\nGlicemia alta: {glicemia_alta}{unidade_glicemia}\nHiperglicemia: {hiperglicemia}{unidade_glicemia}")
