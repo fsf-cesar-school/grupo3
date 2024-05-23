@@ -1,5 +1,5 @@
 def anamnese():
-    global quadro_clinico, sexo, idade ,  altura , peso, imc, tipo_diabetes, terapia, unidades_medida, unidade_glicemia, hipoglicemia, glicemia_baixa, glicemia_desejada, glicemia_alta, hiperglicemia
+    global quadro_clinico, sexo, idade, altura, peso, imc, tipo_diabetes, terapia, unidades_medida, unidade_glicemia, hipoglicemia, glicemia_baixa, glicemia_desejada, glicemia_alta, hiperglicemia
     medicamentos = []
     dosagem = []
     dose_caneta = []
@@ -67,7 +67,12 @@ def anamnese():
     glicemia_alta = int(input('Informe o seu nível de glicemia alta: '))
     hiperglicemia = int(input('Informe o seu nível de hiperglicemia: '))
     quadro_clinico = (sexo , idade ,  altura , peso, imc, tipo_diabetes, terapia, unidades_medida, unidade_glicemia, hipoglicemia, glicemia_baixa, glicemia_desejada, glicemia_alta, hiperglicemia)
-    return quadro_clinico 
+    
+    with open('quadro_clinico.txt', 'w+') as qc:
+        qc.write(f"O seu quadro clínico é:\nSexo: {sexo}\nIdade: {idade} anos.\nAltura: {altura} m\nPeso: {peso} kg\nIMC: {imc:.2f}.\nTipo de Diabetes: {tipo_diabetes}\nTipo de terapia: {terapia}.\nSistema de medidas: {unidades_medida}\nUnd. Med. glicemia: ({unidade_glicemia}).\nMetas glicêmicas:\nHipoglicemia: {hipoglicemia}{unidade_glicemia}\nGlicemia baixa: {glicemia_baixa}{unidade_glicemia}\nGlicemia desejada: {glicemia_desejada}{unidade_glicemia}\nGlicemia alta: {glicemia_alta}{unidade_glicemia}\nHiperglicemia: {hiperglicemia}{unidade_glicemia}")
+        qdcl = qc.read()
+        print(qdcl)
+
+    return quadro_clinico
 
 anamnese()
-print(f"O seu quadro clínico é:\nSexo: {sexo}\nIdade: {idade} anos.\nAltura: {altura} m\nPeso: {peso} kg\nIMC: {imc:.2f}.\nTipo de Diabetes: {tipo_diabetes}\nTipo de terapia: {terapia}.\nSistema de medidas: {unidades_medida}\nUnd. Med. glicemia: ({unidade_glicemia}).\nMetas glicêmicas:\nHipoglicemia: {hipoglicemia}{unidade_glicemia}\nGlicemia baixa: {glicemia_baixa}{unidade_glicemia}\nGlicemia desejada: {glicemia_desejada}{unidade_glicemia}\nGlicemia alta: {glicemia_alta}{unidade_glicemia}\nHiperglicemia: {hiperglicemia}{unidade_glicemia}")
