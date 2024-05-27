@@ -13,7 +13,7 @@ class Usuario:
         self.endereco = endereco
 
     def salvar_perfil(self):
-        with open('grupo3/perfil.txt', 'w', encoding='utf-8') as arquivo:
+        with open('perfil.txt', 'a+', encoding='utf-8') as arquivo:
             arquivo.write(f'Nome: {self.nome}\n')
             arquivo.write(f'Idade: {self.idade}\n')
             arquivo.write(f'E-mail: {self.email}\n')
@@ -26,7 +26,7 @@ class Usuario:
             userlogin = input("» Insira o seu endereço de email: ")
             userpwd = input("» Insira sua senha: ")
 
-            with open('grupo3/users.txt', 'r', encoding='utf-8') as f:
+            with open('users.txt', 'a+', encoding='utf-8') as f:
                 users = f.readlines()
 
                 user_found = False
@@ -58,13 +58,13 @@ class Usuario:
             userpassword = input("» Crie uma senha:\n")
             confirmpassword = input("» Confirme a sua senha:\n")
 
-            with open('grupo3/users.txt', 'r', encoding='utf-8') as f:
+            with open('users.txt', 'a+', encoding='utf-8') as f:
                 if useremail in f.read():
                     print('» Esse email já está sendo utilizado.')
                     continue
 
             if confirmpassword == userpassword:
-                with open('grupo3/users.txt', 'a', encoding='utf-8') as f:
+                with open('users.txt', 'a+', encoding='utf-8') as f:
                     f.write(f'{useremail} {userpassword}\n')
                 print('» Cadastro efetuado com sucesso!')
 
@@ -89,7 +89,7 @@ class Usuario:
 
 def carregar_perfil():
     try:
-        with open('grupo3/perfil.txt', 'r', encoding='utf-8') as arquivo:
+        with open('perfil.txt', 'r', encoding='utf-8') as arquivo:
             linhas = arquivo.readlines()
             print("\n» Perfil carregado\n")
             for linha in linhas:
@@ -121,7 +121,7 @@ def tela_inicial():
 # •*´¨`*•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•*
 
 def listacomidas():
-    with open('grupo3/comida.txt', 'r', encoding='utf-8') as f:
+    with open('comida.txt', 'r', encoding='utf-8') as f:
         print(f.read())
 
 def alimentacao():
@@ -140,7 +140,7 @@ def alimentacao():
                     f.write(f'- {comida}\n')
 
         elif escolhaalimentacao == 2:
-            with open('grupo3/comida.txt', 'a', encoding='utf-8') as f:
+            with open('comida.txt', 'a', encoding='utf-8') as f:
                 f.write("» Almoço:\n")
                 while True:
                     comida = input("» O que você comeu no almoço? (Digite 'sair' para terminar)\n")
@@ -149,7 +149,7 @@ def alimentacao():
                     f.write(f'- {comida}\n')
 
         elif escolhaalimentacao == 3:
-            with open('grupo3/comida.txt', 'a', encoding='utf-8') as f:
+            with open('comida.txt', 'a', encoding='utf-8') as f:
                 f.write("» Jantar:\n")
                 while True:
                     comida = input("» O que você comeu no jantar? (Digite 'sair' para terminar)\n")
@@ -158,7 +158,7 @@ def alimentacao():
                     f.write(f'- {comida}\n')
 
         elif escolhaalimentacao == 4:
-            with open('grupo3/comida.txt', 'a', encoding='utf-8') as f:
+            with open('comida.txt', 'a', encoding='utf-8') as f:
                 f.write("» Lanche:\n")
                 while True:
                     comida = input("» O que você comeu no lanche? (Digite 'sair' para terminar)\n")
@@ -278,11 +278,11 @@ def anamnese():
     print()
 
 def grava_quadro_clinico():
-    with open ('grupo3/quadro_clinico.txt', 'a+', encoding='utf-8') as qc:
+    with open ('quadro_clinico.txt', 'a+', encoding='utf-8') as qc:
         qc.write(f"O seu quadro clínico é:\nSexo: {sexo}\nIdade: {idade} anos.\nAltura: {altura} m\nPeso: {peso} kg\nIMC: {imc:.2f}.\nTipo de Diabetes: {tipo_diabetes}\nTipo de terapia: {terapia}.\nSistema de medidas: {unidades_medida}\nUnd. Med. glicemia: ({unidade_glicemia}).\nMetas glicêmicas:\nHipoglicemia: {hipoglicemia}{unidade_glicemia}\nGlicemia baixa: {glicemia_baixa}{unidade_glicemia}\nGlicemia desejada: {glicemia_desejada}{unidade_glicemia}\nGlicemia alta: {glicemia_alta}{unidade_glicemia}\nHiperglicemia: {hiperglicemia}{unidade_glicemia}")
 
 def print_quadro_clinico():
-    with open ('grupo3/quadro_clinico.txt', 'r', encoding='utf-8') as qdc:
+    with open ('quadro_clinico.txt', 'r', encoding='utf-8') as qdc:
         qdr_cln = qdc.read()
     print(qdr_cln)
 
@@ -502,7 +502,7 @@ def validade_faixa_menu(pergunta, inicio, fim):
 ############################################################################
 
 tabela_glicemia = []
-tx_glicemia = "grupo3/glicemia.txt"
+tx_glicemia = "glicemia.txt"
 glicemia = 0
 
 def pede_glicemia():
@@ -605,7 +605,7 @@ def analise_glicemia():
 
 def print_relatorio():
     print("\n» Relatório Glicemia:\n")
-    with open ('grupo3/glicemia.txt', 'r', encoding='utf-8') as fp:
+    with open ('glicemia.txt', 'r', encoding='utf-8') as fp:
         pr = fp.read()
     print(pr)
 
