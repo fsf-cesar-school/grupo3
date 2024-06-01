@@ -49,10 +49,11 @@ class Usuario:
     nome_global = ''
     telefone_global = ''
     endereco_global = ''
+    email_global = ''
 
     @staticmethod
     def cadastro():
-        global idade_global, nome_global, telefone_global, endereco_global 
+        global idade_global, nome_global, email_global, telefone_global, endereco_global 
         while True:
             useremail = input("» Insira o seu endereço de email:\n")
             userpassword = input("» Crie uma senha:\n")
@@ -72,11 +73,12 @@ class Usuario:
                 nome_global = nome
                 idade = input("» Digite sua idade: ")
                 idade_global = idade
+                email = useremail
                 telefone = input("» Digite seu telefone: ")
                 telefone_global = telefone
                 endereco = input("» Digite seu endereço: ")
                 endereco_global = endereco
-                usuario = Usuario(nome, idade, telefone, endereco)
+                usuario = Usuario(nome, idade, email, telefone, endereco)
                 usuario.salvar_perfil()
                 print("» Perfil criado com sucesso!")
 
