@@ -54,39 +54,41 @@ class Usuario:
     @staticmethod
     def cadastro():
         global idade_global, nome_global, email_global, telefone_global, endereco_global 
-        while True:
+        passa = 0
+        while passa == 0:
             useremail = input("» Insira o seu endereço de email:\n")
             userpassword = input("» Crie uma senha:\n")
             confirmpassword = input("» Confirme a sua senha:\n")
+            while passa == 0:
+              with open('users.txt', 'r+', encoding='utf-8') as f:
+                    if useremail in f.read():
+                        print('» Esse email já está sendo utilizado.')
+                        break
+              if confirmpassword == userpassword:
+                  with open('users.txt', 'a+', encoding='utf-8') as f:
+                      f.write(f'{useremail} {userpassword}\n')
+                  print('» Cadastro efetuado com sucesso!')
 
-            with open('users.txt', 'a+', encoding='utf-8') as f:
-                if useremail in f.read():
-                    print('» Esse email já está sendo utilizado.')
-                    continue
+                  nome = input("» Digite seu nome: ")
+                  nome_global = nome
+                  idade = input("» Digite sua idade: ")
+                  idade_global = idade
+                  email = useremail
+                  telefone = input("» Digite seu telefone: ")
+                  telefone_global = telefone
+                  endereco = input("» Digite seu endereço: ")
+                  endereco_global = endereco
+                  usuario = Usuario(nome, idade, email, telefone, endereco)
+                  usuario.salvar_perfil()
+                  print("» Perfil criado com sucesso!")
 
-            if confirmpassword == userpassword:
-                with open('users.txt', 'a+', encoding='utf-8') as f:
-                    f.write(f'{useremail} {userpassword}\n')
-                print('» Cadastro efetuado com sucesso!')
-
-                nome = input("» Digite seu nome: ")
-                nome_global = nome
-                idade = input("» Digite sua idade: ")
-                idade_global = idade
-                email = useremail
-                telefone = input("» Digite seu telefone: ")
-                telefone_global = telefone
-                endereco = input("» Digite seu endereço: ")
-                endereco_global = endereco
-                usuario = Usuario(nome, idade, email, telefone, endereco)
-                usuario.salvar_perfil()
-                print("» Perfil criado com sucesso!")
-
-                #anamnese()
-                break
-            else:
-                print("» As senhas não coincidem.")
-                continue
+                  anamnese()
+                  grava_quadro_clinico()
+                  passa = 1
+                  break
+              else:
+                  print("» As senhas não coincidem.")
+                  continue
 
 
 def carregar_perfil():
@@ -108,8 +110,8 @@ def tela_inicial():
 
         if escolhaentrada == 1:
             Usuario.cadastro()
-            anamnese()
-            grava_quadro_clinico()
+            #anamnese()
+            #grava_quadro_clinico()
             break
 
         elif escolhaentrada == 2:
